@@ -1,5 +1,5 @@
 \documentclass[a4paper]{article}
-\title{A Zero Cost Muon Ranger and Beam Monitor for the DUNE Near Detector}%for Overleaf
+\title{ArgonCube 2x2 Light Readout Feedthroughs}%for Overleaf
 
 %% Language and font encodings
 \usepackage[british]{babel} % set babel to british rather than american
@@ -56,7 +56,7 @@
 
 \begin{center}
 	
-	{\Large \bf A Practical Muon Ranger for the DUNE Near Detector} 
+	{\Large \bf ArgonCube 2x2 Light Readout Feedthroughs} 
 	\vspace*{0.5cm}
 	\setcounter{footnote}{0}  
 	\def\A{\kern+.6ex\lower.42ex\hbox{$\scriptstyle \iota$}\kern-1.20ex a}
@@ -65,92 +65,18 @@
 	\newcommand{\Aname}[2]{#1}
 	\def\titlefoot#1{\vspace{-0.01cm}\begin{center}{\bf #1}\end{center}}
 	
-	\Aname{J.~R.~Sinclair\footnote{Corresponding author: james.sinclair@lhep.unibe.ch}}{Bern},
-	\Aname{M.~Weber}{Bern}, and 
-	\Aname{C.~Wilkinson}{Bern}
+	\Aname{L.~Calivers\footnote{Corresponding author: livio.calivers@lhep.unibe.ch}}{Bern}, and
+	\Aname{I.~Kreslow}{Bern}
 	\titlefoot{Albert Einstein Center for Fundamental Physics, Laboratory for High Energy Physics, University of Bern, 3012 Bern, Switzerland\label{Bern}}
 	
-	\Aname{A.~Bross}{FNAL}
-	\titlefoot{Fermi National Accelerator Laboratory, Batavia, IL 60510, USA\label{FNAL}}
 	
 \end{center}
 
 
-The DUNE Near Detector (ND) construction will have to be staged. 
-The final stage will see a LArTPC, ArgonCube, upstream of a magnetised GArTPC, the Multi-Purpose Detector (MPD).  
-Stage zero has to provide the bare minimum for an oscillation analysis from day one of operation.
+This document describes the signal and power feedthroughs for the light readout of the 2x2.
+The mechanical design is presented along with a summary of the production procedures and material selection. 
+Results of the proof test ($\geq400\times$MAWP)
 
-The oscillation analysis assumes ArgonCube from day one. 
-ArgonCube will not change, beyond upgrades of internal components, for the duration of the DUNE ND operation.
-The dimensions of ArgonCube are \SI{3}{\metre} tall, \SI{7}{\metre} wide, and \SI{5}{\metre} long in beam direction~\cite{LAr_size}.
-These dimensions were optimised to contain hadronic showers and not forward-going muons. 
-It is therefore necessary for ArgonCube to be coupled to a downstream muon spectrometer with good geometric acceptance, in order to contain muons.
-The MPD will provide this in the final stage, but will not be included in stage zero.
-%To maximise the fraction of muons from ArgonCube that penetrate into the spectrometer, it is also important to minimise uninstrumented material between the two active components.   
-
-Here, we present a practical steel-scintillator muon ranger to operate downstream of ArgonCube at stage zero.   
-The proposal is based on the MINOS-ND and the SBN Cosmic Ray Tagger (CRT), available at zero core cost.
-If the MINOS-ND is already used in conjunction with the ArgonCube 2x2 demonstrator~\cite{2x2} in ProtoDUNE-ND, then the application to the DUNE ND would be straightforward.
-
-Defining a minimum requirement for the stage zero spectrometer is not trivial. 
-Studies have shown that neutrino energies \textgreater\SI{5}{\giga\electronvolt} do not contribute significantly to the most basic oscillation analysis)~\cite{elizabeth2}.%, as there are no oscillated \textgreater\SI{5}{\giga\electronvolt} $\nu_{\mathrm{e}}$ at the Far Detector (FD)~\cite{elizabeth2}. 
-%However, that does not mean that \SI{8}{\giga\electronvolt} ND events do not inform our knowledge about modelling \SI{4}{\giga\electronvolt} FD events.
-In the absence of a complete oscillation analysis, we consider basic properties of the flux, which diminishes after \SI{5}{\giga\electronvolt}, where the ND event rate falls to roughly 10\% of its value at the peak~\cite{LBL}.
-Allowing some contingency, we set a limit of \SI{6}{\giga\electronvolt} muon momentum that must be contained by the near detector in stage zero.
-Going beyond \SI{6}{\giga\electronvolt} is obviously desirable, but this will likely run into spatial constraints of the ND hall in the absence of a magnet.  
-
-                
-To provide good geometric acceptance, we assume transverse dimensions close to those of the MPD: \SI{3.5}{\metre} tall and \SI{6}{\metre} wide.
-The depth in beam direction is dictated by the stopping range of a \SI{6}{\giga\electronvolt} muon; a MIP deposits \SI{2}{\mega\electronvolt\per\centi\metre\squared\per\gram}, given the density of steel at \SI{7.8}{\gram\per\centi\metre\cubed}, that corresponds to \SI{1.56}{\giga\electronvolt\per\metre}.
-Therefore, neglecting the stopping power of scintillator, at least \SI{4}{\metre} of steel are required in the beam direction.  
-Of course, the geometry should be optimised through simulation.   
-The steel can be broken into 40 layers, each \SI{10}{\centi\metre} deep with a transverse area of \SI{21}{\metre\squared}; to instrument every layer including the front face would require \SI{861}{\metre\squared} of X-Y scintillator planes.
-It is not necessary to instrument every layer, a scheme like that used in MINOS~\cite{MINOSDetectors}, with finer granularity upstream, should be implemented to reduce the required instrumentation.
-Again, this will need optimising through simulation, based on the desired resolution at various momenta.    
-
-
-Bern has provided the SBN with \SI{626}{\metre\squared} of X-Y (\SI{1250}{\metre\squared} single layer) SiPM-instrumented scintillator planes~\cite{CRT}, a single plane is shown in Figure~\ref{fig:CRT}.
-These planes, complete with readout, DAQ, and power supplies, are currently located at Fermilab, where they are being used as the CRTs of MicroBooNE~\cite{uBCRT} and SBND. 
-Each (X or Y) plane is \SI{2}{\centi\metre} thick, with surface areas ranging from \SI[product-units=repeat]{1.8x4.5}{\metre} to \SI[product-units=repeat]{0.96x2.72}{\metre}.
-Therefore, their stacking would need optimising for deployment in the muon ranger.
-A single module has a timing resolution of \SI{3}{\nano\second} and a position resolution of \SI{1.8}{\centi\metre}~\cite{CRT,uBCRT}. 
-After the SBN, the reuse of the CRT will have to be negotiated, but it will fit the timeline of the DUNE ND.  
-
-\begin{figure}[H]
-	\centering{
-		\includegraphics[width=.4\columnwidth]{Figures/CRT2}
-		\includegraphics[width=.4\columnwidth]{Figures/CRT1}	
-	}
-	\caption{Left: A Cosmic Ray Tagger (CRT) module during construction; 16 scintillator plastic strips are visible. Right: A \SI[product-units=repeat]{1.8x4.1}{\metre} production module during testing at Bern~\cite{CRT}.}
-	\label{fig:CRT}
-\end{figure}
-
-A possible source of steel for the ranger is the MINOS-ND. 
-The MINOS-ND~\cite{MINOS_NIM} is a magnetic spectrometer formed of \SI{1}{\kilo\tonne} of steel and plastic scintillator.
-It is currently located in the NuMI beam line at Fermilab.  
-A schematic of the MINOS-ND is shown in Figure~\ref{fig:minos}, it consists of 282 planes of \SI{2.54}{\centi\metre} thick steel,  \SI{7.16}{\metre} in total. 
-A drawback of the MINOS-ND steel is its surface area, which is only \SI[product-units=repeat]{4.8x3}{\metre}, and not of optimal shape.
-However, only 158 of the planes are required to achieve the \SI{4}{\metre} depth of steel. 
-The remaining 124 planes contain sufficient steel to broaden the 158 planes to the required width. 
-The MINOS steel is low carbon, which is not a requirement of the DUNE ND, therefore the steel could potentially be exchanged for sections of more suitable dimensions.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.97\textwidth]{Figures/minos.png}
-	\caption{Left: Top view of the MINOS near detector, showing the calorimeter and muon spectrometer (not to scale). Right: transverse view of a near detector plane. The shaded area shows a partially instrumented active scintillator plane, the dashed line shows the boundary of the fiducial region. The dotted line denotes the outline of a fully instrumented scintillator plane. Reproduced from Figure~2 of Ref.~\cite{MINOSDetectors}.}
-	\label{fig:minos}
-\end{figure}
-
-Using the components described, the total dimensions of the muon ranger can be estimated.  
-The \SI{626}{\metre\squared} of scintillator planes corresponds to 29 layers, given a surface area of \SI{21}{\metre\squared} for each layer.  
-Each instrumented layer requires an X and Y plane, combined at \SI{4}{\centi\metre}, plus a support structure also estimated at \SI{4}{\centi\metre}, giving a total of \SI{8}{\centi\metre}. 
-The total depth of the scintillator planes is therefore \SI{2.32}{\metre}, combined with the steel gives over all dimensions of \SI[product-units=repeat]{3.5x6x6.32}{\metre}.        
-
-After stage zero, the muon ranger could be rebuilt along the downstream wall of the ND hall to provide a large area  beam monitor. 
-
-Such a muon ranger being adopted as stage zero for the DUNE ND, would make it beneficial to demonstrate the coupling of a LArTPC to a muon range stack before being deployed in the ND.
-For example, the ArgonCube 2x2 demonstrator and the MINOS-ND, where the required software could be developed, and the experience gained would guarantee that the stage zero detector is already well understood at relevant energies. 
-The MINOS-ND scintillator and readout could be replaced with the SBN CRTs when the steel is transferred into the DUNE ND hall.      
 
 \printbibliography
 

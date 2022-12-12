@@ -29,8 +29,7 @@
 
 \usepackage{afterpage}
 
-\usepackage{siunitx}
-\sisetup{separate-uncertainty=true}
+\usepackage[binary-units,separate-uncertainty=true]{siunitx}
 \DeclareSIUnit\radlen{\text{\ensuremath{X_{\mathrm{0}}}}}
 \DeclareSIUnit\clight{\text{\ensuremath{c}}} % remove 0 subscript from speed of light
 
@@ -42,6 +41,7 @@
 \graphicspath{{./Figures/}}
 \usepackage{microtype}   
 \usepackage{soul}
+
 
 \usepackage[autostyle]{csquotes} % recommended by biblatex
 \usepackage{xpatch} % recommended by biblatex
@@ -56,7 +56,7 @@
 
 \begin{center}
 	
-	{\Large \bf ArgonCube 2x2 Light Readout Feedthroughs} 
+	{\Large \bf ArgonCube 2x2 Light Readout Feedthrough Pressure Testing and Demonstrated Performance} 
 	\vspace*{0.5cm}
 	\setcounter{footnote}{0}  
 	\def\A{\kern+.6ex\lower.42ex\hbox{$\scriptstyle \iota$}\kern-1.20ex a}
@@ -64,19 +64,159 @@
 	\small
 	\newcommand{\Aname}[2]{#1}
 	\def\titlefoot#1{\vspace{-0.01cm}\begin{center}{\bf #1}\end{center}}
+		
+	\Aname{J.~Bürgi}{Bern},
+	\Aname{L.~Calivers\footnote{Corresponding author: livio.calivers@lhep.unibe.ch}}{Bern},
+	\Aname{I.~Kreslow}{Bern}, and
+	\Aname{S.~Parsa}{Bern}
 	
-	\Aname{L.~Calivers\footnote{Corresponding author: livio.calivers@lhep.unibe.ch}}{Bern}, and
-	\Aname{I.~Kreslow}{Bern}
 	\titlefoot{Albert Einstein Center for Fundamental Physics, Laboratory for High Energy Physics, University of Bern, 3012 Bern, Switzerland\label{Bern}}
 	
 	
 \end{center}
+\section{Introduction}
+This document describes the signal and power feedthroughs for the light readout of the 2x2 demonstrator, shown in Figure~\ref{fig:ft}.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Figures/ft.jpg}
+	\caption{Light readout feedthroughs mounted on top of the vacuum pocket of a 2x2 module.}
+	\label{fig:ft}
+\end{figure}
 
 
-This document describes the signal and power feedthroughs for the light readout of the 2x2.
+The 2x2 is a modular LArTPC housed in a vacuum-jacketed cryostat with \SI{350}{\milli\bar\g} MAWP.
 The mechanical design is presented along with a summary of the production procedures and material selection. 
-Results of the proof test ($\geq400\times$MAWP)
+To address safety requirements of \footnote{M.J. Kim, M. Zuckerbrot, M. Geynisman \textit{``Feedthrough Requirements as Defined by Cryostat and Cryogenic System''} V1.0 April 2022} results of a qualifying pressure test carried out hydrostatically at >400\% MAWP are presented.
+Module0 feedthroughs have also been pneumatically proof tested after assembly at >110\% MAWP.  
+Achieved LAr purity is presented in lieu of a leak rate measurement to address performance requirements, showing demonstrated operation.     
 
+\section{Mechanical Design}
+The feedthrough consists of slotted ConFlat\textsuperscript{\textregistered}(CF) blank with an PCB potted into the slot using epoxy.
+The blank is a CF75 (4.64") shown in Figure~\ref{fig:cf}.
+Note, the slot is narrowed at its centre to prevent movement of the epoxy in under or over pressure cases. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.99\linewidth]{Figures/cf_drawing.png}
+	\includegraphics[width=0.99\linewidth]{Figures/pcb_drawing.png}
+	\caption{Mechanical drawing of the light readout feedthrough.}
+	\label{fig:cf}
+\end{figure}
+
+The PCB dimension are shown in Figure~\ref{fig:pcb}(lower), it is symmetric on each sided and across the CF. 
+It has 16 micro-coax connectors, FCS8-20-01-L-S-A-TR \footnote{\url{https://www.farnell.com/datasheets/2260779.pdf}}, eight in the warm and eight in the cold.   
+
+The epoxy used for potting is Arathane\textsuperscript{\textregistered} CW~5620\footnote{\url{https://www.generaladhesivos.com/proveedor-pegamento/1146hoja-tecnica-arathane-cw-5620-arathane-hy-5610.pdf}}.
+It is a low-viscosity, halogen-free casting and impregnating epoxy suitable for pressure-sensitive devices.
+The low-viscosity enables reproducible and robust potting without the need for pumping-out or heating the part on assembly.
+
+For assembly, the bare PCB is held vertically, the slotted CF is slid into position, and the lower edge of the slot is sealed, epoxy is poured in and allowed to cure. After curing, excess epoxy is removed and the connectors are soldered to the PCB.
+    
+\subsection{Potential Failure Modes}
+The feedthrough is extremely robust.  
+Any damage to the PCB will not likely effect the ability to seal or hold pressure.
+The epoxy can be visually inspected for cracks or damage. 
+The most fragile components are the micro coaxial connectors.
+It is very easy to damage the connectors or their soldering to the board if mishandled.  
+
+\section{Hydrostatic Qualifying Test}
+To qualify the feedthrough design a hydrostatic test at >400\% MAWP is required. 
+Given the \SI{350}{\milli\bar\g} MAWP, at qualifying test at >\SI{1.4}{\bar\g} is required. 
+To fully understand the feedthrough limitations, it was decided to attempt to test to failure.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.99\linewidth]{Figures/400x.jpg}
+	\caption{The setup used for the qualifying test of the light readout feedthroughs.}
+	\label{fig:setup}
+\end{figure}
+
+The setup used for the qualifying test is shown in Figure\ref{fig:setup}.
+The feedthrough and a manometer are connected via a series CF and KF adaptors to a Rothenberger test pump RP 50.
+
+After purging the setup with water and purging the system of air, the pressure was increased in increments of \SI{5}{\bar} to \SI{30}{\bar\g}.    
+The setup was held at \SI{30}{\bar\g} for \SI{10}{\min}.
+The test was stopped at this pressure. 
+Pressures as read at the setup and pump are shown in Figure~\ref{fig:pressure}   
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Figures/gauge.jpg}
+	\includegraphics[width=0.5\linewidth]{Figures/pump.jpg}
+	\caption{The manometers on the setup and the pump showing the pressure achieved during the hydrostatic qualifying test,\SI{30}{\bar\g}.}
+	\label{fig:pressure}
+\end{figure}
+
+\section{Demonstrated operation}
+
+After the feedthroughs are assembled into the module top flanges, the modules were tested at Bern as part of the SingleModule cryostat.
+Each module is operated in LAr for multiple days.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.3\linewidth]{Figures/singleModule1.jpg}
+	\includegraphics[width=0.3\linewidth]{Figures/singleModule2.jpg}
+	\caption{The SingleModule test cryostat in Bern, with a module installed.}
+	\label{fig:singlemodule}
+\end{figure}
+
+Module0 was operated for a total of \SI{52}{\day}, Module1 was operated for \SI{13}{\day}.
+
+\subsection{Proof Test}
+
+Module0 feedthroughs have been pneumatically tested at >110\% MAWP, meeting the requirements of the proof test.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Figures/mod0_run1.jpg}
+	\includegraphics[width=0.9\linewidth]{Figures/mod0_run1_closeup.jpg}
+	\caption{The ullage pressure of Module0 during tests in November 2020}
+	\label{fig:ullage_mod0}
+\end{figure}
+
+Module1 operating pressure did not exceed \SI{350}{\milli\bar\g}, as shown in Figure~\ref{fig:ullage_mod1}.
+
+\begin{figure}[htbp]
+ 	\centering
+ 	\includegraphics[width=0.9\linewidth]{Figures/ullage_mod1.png}
+ 	\caption{The ullage pressure of Module1 during tests in February 2022}
+ 	\label{fig:ullage_mod1}
+\end{figure}
+
+\subsection{Achieved Purity}
+
+The purity achieved during operation is shown in Figures~\ref{fig:puritymod0}~and~\ref{fig:puritymod1}, Module0 achieved \SI{2.5}{\milli\second} and \SI{2.7}{\milli\second}, Module1 achieved \SI{2.0}{\milli\second}.
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Figures/purity_mod0_1.png}
+	\includegraphics[width=0.9\linewidth]{Figures/purity_mod0_2.png}
+	\caption{The purity achieved during \SI{40}{\day} operation for the Module0 in Bern.}
+	\label{fig:puritymod0}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Figures/purity_mod1.png}
+	\caption{The purity achieved during \SI{13}{\day} operation for the Module1 in Bern.}
+	\label{fig:puritymod1}
+\end{figure}
+
+
+
+\section{Observations}
+A light readout feedthrough was exposed to a hydrostatic pressure of \SI{30}{\bar\g}, or 8571\% MAWP. 
+The feedthrough remained mechanically stable, showing no deformation or failure.
+
+Module0 feedthroughs spent multiple hours at \SI{400}{\milli\bar\g}, meeting the requirements of the proof test: >110\% MAWP or >\SI{385}{\milli\bar\g}.
+
+Although being identical in construction as the hydrostatically tested feedthrough, Module1 feedthroughs have not yet been operated at >\SI{385}{\milli\bar\g}. 
+Thus, they have not cleared the proof test requirements.  
+Therefore, it is desirable that they be tested at least as part of the assembled 2x2 system.  
+
+The feedthroughs of Module0 and Module 1 have been operated in the Bern SingleModule cryostat, where they achieved and maintained purity with
+out issue for multiple days of operation, greater than 1 month in the case of Module0.   
 
 \printbibliography
 
